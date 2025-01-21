@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://foyin.github.io/Minesweeper2/",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "compile": "tsc",
