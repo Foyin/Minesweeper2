@@ -1,0 +1,47 @@
+@import url("./Minesweeper/minesweeper.css");
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: black;
+}
+
+.topBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.topBar div{
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm {
+  min-width: 18em;
+  margin: 5px;
+}
+
+.loginForm input{
+  margin: 2px;
+}
+
+.smallButton {
+  font-size: 0.8em;
+}
+
+.inputText {
+  font-size: 1.3em;
+  width: 100%;
+}
+
+button {
+  margin: 0.5em;
+}
