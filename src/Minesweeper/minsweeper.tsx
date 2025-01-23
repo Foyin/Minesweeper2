@@ -61,7 +61,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
        // handle success
        setWinnerList(response.data);
        // get player with lowest score to delete
-       setDifficulty(gameSetup);
+       //setDifficulty(gameSetup);
        console.log(response.data);
      })
      .catch(function (error) {
@@ -165,7 +165,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
             // code block
         }
       }
-      //getLeaderboard();
+      getLeaderboard();
       callback();
    }
 
@@ -313,7 +313,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
 
     // Format the time as MM:SS
     formattedTime = formatTime(minutes, seconds);
-    console.log(formattedTime)
+    //console.log(formattedTime)
 
     if (totalSeconds >= timeToReset) {
       setDifficulty(gameSetup)
@@ -719,7 +719,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
           <div>
           <h1> Minesweeper </h1>
 
-          <div onLoad={() => getLeaderboard()}>
+          <div onLoad={() => setDifficulty(gameSetup)}>
             <div className="gameInfoSection">
               <select id="difficulty" >
                 <option value="0">Easy</option>
