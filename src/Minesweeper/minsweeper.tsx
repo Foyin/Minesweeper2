@@ -61,7 +61,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
        // handle success
        setWinnerList(response.data);
        // get player with lowest score to delete
-       //setDifficulty(gameSetup);
+       setDifficulty(gameSetup);
        console.log(response.data);
      })
      .catch(function (error) {
@@ -165,7 +165,6 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
             // code block
         }
       }
-      getLeaderboard();
       callback();
    }
 
@@ -276,7 +275,8 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
 
   useEffect(() => {
     return () => {
-      clearInterval(timer);
+      getLeaderboard()
+      //clearInterval(timer);
     };
   }, []);
 
@@ -343,25 +343,26 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
 
   function smileyUp() {
       var smiley = document.getElementById("smiley");
-      if(smiley){
         document.getElementById("win").style.visibility = "hidden";
         smiley.classList.remove("face_down");
         smiley.classList.remove("face_limbo");
         smiley.classList.remove("face_win");
         smiley.classList.remove("face_lose");
-      }
+
   }
 
   function smileyWin() {
       var smiley = document.getElementById("smiley");
       document.getElementById("win").style.visibility = "visible";
       //document.getElementById("myCanvas").style.visibility = "hidden";
-      smiley.classList.add("face_win");   
+        smiley.classList.add("face_win");  
+      
   }
 
   function smileyLose() {
       var smiley = document.getElementById("smiley");
-      smiley.classList.add("face_lose");   
+        smiley.classList.add("face_lose");  
+      
   }
 
 
