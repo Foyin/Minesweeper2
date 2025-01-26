@@ -204,11 +204,11 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
 
             mineImg = new Image();
             flagImg = new Image();
-            flagImg.src = "public/images/flag.png"; 
+            flagImg.src = "images/flag.png"; 
             mineHitImg = new Image();
-            mineHitImg.src = "public/images/mine_hit.png";
+            mineHitImg.src = "images/mine_hit.png";
             bombMarkedImg = new Image();
-            bombMarkedImg.src = "public/images/mine_marked.png";
+            bombMarkedImg.src = "images/mine_marked.png";
             //colorMode(RGB);
             //gridSet()
             ctx.canvas.width  = cols * scale;
@@ -588,7 +588,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
     this.isOpen = false;
 
     this.show = function() {
-      mineImg.src = "public/images/mine.png"; 
+      mineImg.src = "images/mine.png"; 
 
       ctx.beginPath();
       ctx.rect(this.x, this.y, this.w, this.h);
@@ -729,16 +729,16 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
               </select>
               
               <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-              <span><img className="icons" src="public/images/mine.png"/></span>
+              <span><img className="icons" src="images/mine.png"/></span>
               <span id="mineCount" className="gameData"> </span>
               
               <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-              <span><img className="icons" src="public/images/flag.png"/></span>
+              <span><img className="icons" src="images/flag.png"/></span>
               <span id="flagCount" className="gameData"> </span>
               
               <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
               <span>
-                  <img src="public/images/timer.png" className="icons"/>
+                  <img src="images/timer.png" className="icons"/>
               </span>
               <span id="timer" className="gameData"> </span>
               <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
