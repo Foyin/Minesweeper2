@@ -720,7 +720,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
           <div>
           <h1> Minesweeper </h1>
 
-          <div onLoad={() => setDifficulty(gameSetup)}>
+          <div onLoad={() => getLeaderboard()}>
             <div className="gameInfoSection">
               <select id="difficulty" >
                 <option value="0">Easy</option>
