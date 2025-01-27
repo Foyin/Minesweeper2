@@ -25,7 +25,7 @@ const LoginPage = ( { username, handleUsernameChange }: LoginPageProps ) => {
       if (session && typeof session.AccessToken !== "undefined") {
         sessionStorage.setItem("accessToken", session.AccessToken);
         if (sessionStorage.getItem("accessToken")) {
-          window.location.href = "/home";
+          window.location.href = "/";
         } else {
           console.error("Session token was not set properly.");
         }

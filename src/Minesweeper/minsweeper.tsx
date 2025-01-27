@@ -278,7 +278,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
       getLeaderboard()
       //clearInterval(timer);
     };
-  }, []);
+  }, [username]);
 
   function  startTimer() { 
     console.log("start")
@@ -713,7 +713,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
       return (
           <div>
           <title>Minesweeper</title>
-          <link type="image/x-icon" href="public/mine.ico?"  />
+          <link type="image/x-icon" href="mine.ico?"  />
           <meta charSet="utf-8"/>
 
 
