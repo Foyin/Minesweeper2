@@ -112,7 +112,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
         const EASY = {
           cols: 4,
           rows: 4,
-          numBombs: 1,
+          numBombs: 3,
           numFlags: 3,
           scoreMultiplier: 2560
         }
