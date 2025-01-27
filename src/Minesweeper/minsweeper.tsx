@@ -26,16 +26,19 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
   let numBombs;
   let numFlags;
   let maxFlags;
-
   let tiles;
   let gameState;
   let flagsleft;
   var start;
-  let currPlayerTime = 0;
   let timer;
   let score;
   let scoreMultiplier;
   let formattedTime;
+
+  async function handleOnload(){
+    await getLeaderboard();
+    await setDifficulty(gameSetup);
+  }
 
   function addWinner(user: string, score: number){
     if(winnerList.length <= 10){
@@ -44,9 +47,9 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
         score: score
       }])
     } else {
-      const lowestSccoreWinner = winnerList.reduce((min, user) => user.score < min.score ? user : min).username
-      deleteWinnerFromLeaderboard(lowestSccoreWinner);
-      setWinnerList(winnerList.filter(user => user.username !== lowestSccoreWinner));
+      const lowestScoreWinner = winnerList.reduce((min, user) => user.score < min.score ? user : min).username
+      deleteWinnerFromLeaderboard(lowestScoreWinner);
+      setWinnerList(winnerList.filter(user => user.username !== lowestScoreWinner));
       setWinnerList([...winnerList, {
         username: user,
         score: score
@@ -61,7 +64,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
        // handle success
        setWinnerList(response.data);
        // get player with lowest score to delete
-       setDifficulty(gameSetup);
+       //setDifficulty(gameSetup);
        console.log(response.data);
      })
      .catch(function (error) {
@@ -71,26 +74,30 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
    }
 
   function addWinnerToLeaerboard (username: string, score: number){
-    axios({
-      method: 'put',
-      url: import.meta.env.VITE_DB_ENDPOINT,
-      data: {
-        username: username,
-        score: score
-      }
-    })
-    .then(function (response) {
-      addWinner(username, score);
-      // handle success
-      console.log(response);
-    })
-    .then(function() { 
-      getLeaderboard()
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
+    const hasWinnerWonBefore = winnerList.find(u => u.username === username);
+
+    if(hasWinnerWonBefore && score > hasWinnerWonBefore.score){
+      axios({
+        method: 'put',
+        url: import.meta.env.VITE_DB_ENDPOINT,
+        data: {
+          username: username,
+          score: score
+        }
+      })
+      .then(function (response) {
+        addWinner(username, score);
+        // handle success
+        console.log(response);
+      })
+      .then(function() { 
+        getLeaderboard()
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+    }
   }
 
   function deleteWinnerFromLeaderboard (username: string){
@@ -720,7 +727,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
           <div>
           <h1> Minesweeper </h1>
 
-          <div onLoad={() => getLeaderboard()}>
+          <div onLoad={() => handleOnload()}>
             <div className="gameInfoSection">
               <select id="difficulty" >
                 <option value="0">Easy</option>
@@ -744,7 +751,7 @@ const Minesweeper = ( { username }: MinesweeperProps ) => {
               <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
               </div>
           </div>
-          
+          {!username && <div> Sign In To Save Score On Leaderboard </div>}
           <div id="smiley" className="smiley" onMouseDown={() => smileyDown()} onMouseUp={() =>  smileyUp()}  ></div>
           <div className="winLoseBanner">
               <div id="win" className="winLose">
