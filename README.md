@@ -2,6 +2,8 @@
 Classic minesweeper game web app with AWS cloud based sign on capabilities and a leaderboard. Users can play the game without signing in or create an account and sign in to save their score on the leaderboard for others to see. Only the top ten scores are saved and displayed.
 
 Made using: TypeScript, ReactJS, CSS, Canvas API, AWS API Gateway, AWS DynamoDB, AWS Cognito, AWS Amplify
+
+[Live Demo](main.d2ysmtqiejbryk.amplifyapp.com/)
 ## How To Play
 
 - Adjacent is defined by the 8 tiles surrounding the target tile, on the diagonal, horizontal, and vertical planes.
