@@ -3,7 +3,7 @@ Classic minesweeper game web app with AWS cloud based sign on capabilities and a
 
 Made using: TypeScript, ReactJS, CSS, Canvas API, AWS API Gateway, AWS DynamoDB, AWS Cognito, AWS Amplify
 
-[Live Demo](main.d2ysmtqiejbryk.amplifyapp.com/)
+[Live Demo](https://main.d2ysmtqiejbryk.amplifyapp.com/)
 ## How To Play
 
 - Adjacent is defined by the 8 tiles surrounding the target tile, on the diagonal, horizontal, and vertical planes.
