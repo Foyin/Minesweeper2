@@ -4,7 +4,7 @@ Classic minesweeper game web app with AWS cloud based sign on capabilities and a
 Made using: TypeScript, ReactJS, CSS, Canvas API, AWS API Gateway, AWS DynamoDB, AWS Cognito, AWS Amplify
 
 ## How The Backend Works
-![](MinesweeperSequenceDiagram.jpg)
+![](MinesweeperSequenceDiagram.png)
 
 
 [Live Demo](https://main.d2ysmtqiejbryk.amplifyapp.com/)
