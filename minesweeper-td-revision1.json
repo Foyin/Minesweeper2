@@ -82,6 +82,5 @@
     },
     "registeredAt": "2026-01-25T16:18:58.661Z",
     "registeredBy": "arn:aws:iam::771005382114:user/Foyin",
-    "enableFaultInjection": false,
     "tags": []
 }
